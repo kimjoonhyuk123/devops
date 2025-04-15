@@ -22,5 +22,6 @@ docker-compose up --build
 ## 🖥 실행 화면
 
 ![실행 결과](flask-redis-demo/screenshots/web-result.png)
+![실행 결과](screenshots/web-result.png)
 
    
