@@ -11,7 +11,7 @@ git push -u origin main
 
 
 
-
+# git저장소에 반영할 때
 git add .
 git commit -m "git 필기 커밋 및 실행결과 경로 변경"
 git push 
