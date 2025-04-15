@@ -18,8 +18,3 @@ Flask 웹 서버와 Redis 캐시 서버를 구성한 DevOps 실습입니다.
 
 ```bash
 docker-compose up --build
-```markdown
-
-![실행 결과](flask-redis-demo/screenshots/web-result.png)
-
-👉 브라우저에서 [http://localhost:5000](http://localhost:5000) 로 접속
