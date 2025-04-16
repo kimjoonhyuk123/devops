@@ -1,0 +1,29 @@
+1단계: 로컬에 git 초기화 하기
+cd C:\Users\KJH\Desktop\kjh\git-devops  # 예시 폴더 경로
+git init
+git add .
+git commit -m "첫 커밋: 프로젝트 초기 업로드"
+
+2단계: github와 연결하기
+git remote add origin https://github.com/junhyuk-dev/git-devops.git
+git branch -M main
+git push -u origin main
+
+git config --global user.name "kimjoonhyuk123"
+git config --global user.email "mercycharity@naver.com"
+
+
+
+
+# git저장소에 반영할 때
+git add .
+git commit -m "git 필기 커밋 및 실행결과 경로 변경"
+git push 
+
+
+
+# main으로 변경
+git branch -m master main 
+
+# 새 브랜치만들고 전환
+git checkout -b gram
