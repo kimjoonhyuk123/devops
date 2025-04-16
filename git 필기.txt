@@ -27,3 +27,53 @@ git branch -m master main
 
 # 새 브랜치만들고 전환
 git checkout -b gram
+
+# gram브랜치에 있을 때 main브랜치에 있는 내용 pull
+git pull origin main
+git show origin/main:파일명  > 새이름	//다른이름으로 가져오기
+git checkout origin/main -- 파일명
+
+#git show vs git pull차이
+git pull은 브랜치 pull은 전체를 병함
+
+
+# 커밋id 활용
+git show 커밋id			//확인
+git checkout 커밋id			//복원
+git reset 				//되돌리기
+git cherry-pick			//특정 커밋만 적용
+git branch 새브랜치커밋id		// 브랜치 만들기
+
+
+
+##github Actions 예시
+# 워크플로우 이름 (GitHub 화면에서 표시됨)
+name: CI 테스트
+
+# 언제 실행할지 설정 (여기선 push 이벤트 발생 시)
+on: [push]
+
+jobs:
+  # Job 이름 (맘대로 지어도 됨)
+  test:
+    # GitHub이 제공하는 가상 머신 (운영체제)
+    runs-on: ubuntu-latest
+
+    # 작업 순서 정의
+    steps:
+      # GitHub 리포지토리의 소스코드를 체크아웃 (코드 내려받기)
+      - uses: actions/checkout@v3
+
+      # 파이썬 설치 (GitHub이 알아서 설치해줌)
+      - name: Python 설치
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11  # 사용할 파이썬 버전
+
+      # 프로젝트의 의존성 패키지 설치 (requirements.txt 기준)
+      - name: 의존성 설치
+        run: pip install -r requirements.txt
+
+      # 테스트 실행 (예: pytest 기반 테스트 코드)
+      - name: 테스트 실행
+        run: pytest

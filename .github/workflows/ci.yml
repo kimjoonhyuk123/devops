@@ -1,0 +1,10 @@
+name: 작은 테스트 워크플로우
+
+on: [push]
+
+jobs:
+  test-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Actions 시작
+        run: echo "✅ 테스트 중입니다!"
