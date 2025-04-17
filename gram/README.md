@@ -1,1 +1,0 @@
-# git-devops-gram
