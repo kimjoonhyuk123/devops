@@ -15,7 +15,8 @@ public static class InventoryManager{
             Console.WriteLine("3. 상품 삭제");
             Console.WriteLine("4. 파일로 저장");
             Console.WriteLine("5. 파일에서 불러오기");
-            Console.WriteLine("6. 이전 메뉴로");
+            Console.WriteLine("6. 엑셀로 내보내기");
+            Console.WriteLine("7. 이전 메뉴로");
             Console.Write("선택: ");
             string input = Console.ReadLine();
 
@@ -50,9 +51,9 @@ public static class InventoryManager{
                     var found = Items.Find(i => i.Name == delName);
                     if (found != null){
                         Items.Remove(found);
-                        Console.WriteLine("🗑️ 삭제 완료!");
+                        Console.WriteLine("삭제 완료!");
                     } else{
-                        Console.WriteLine("❌ 해당 상품을 찾을 수 없습니다.");
+                        Console.WriteLine("해당 상품을 찾을 수 없습니다.");
                     }
                     break;
                 case "4":
@@ -62,6 +63,9 @@ public static class InventoryManager{
                     Items = LoadFromFile.Load();
                     break;
                 case "6":
+                    ExportToExcel.Export(Items);
+                    break;
+                case "7":
                     return; //상위 메뉴로 복귀
                 default:
                     Console.WriteLine("잘못된 입력입니다.");
@@ -69,5 +73,6 @@ public static class InventoryManager{
             }
         }
     }
+    
 }
 }
