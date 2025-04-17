@@ -1,5 +1,10 @@
-using System;
+using System; 
+using ERP.Menu;
+using ERP.Inventory;
+using ERP.Client;
 
+namespace ERP.Menu{
+  
 public static class Menu{
     public static void ShowMenu(){
         while(true){
@@ -42,4 +47,5 @@ public static class Menu{
             }
         }
     }  
+}
 }

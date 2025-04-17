@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-
+using ERP.Menu;
+using ERP.Inventory;
+using ERP.Client;
 
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,8 @@ class Program{
 
         if(inputId == USERNAME && inputPw == PASSWORD){
             Console.WriteLine("로그인성공 !");
+            InventoryManager.Items = LoadFromFile.Load();
+            ClientManager.Clients = LoadClientFromFile.Load();
             Menu.ShowMenu();
 
         }else

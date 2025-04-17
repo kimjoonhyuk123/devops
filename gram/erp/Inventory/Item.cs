@@ -1,3 +1,5 @@
+namespace ERP.Inventory{
+  
 public class Item
 {
     public string Name { get; set; }
@@ -7,4 +9,6 @@ public class Item
     public override string ToString() {
         return $"{Name} | 수량: {Quantity} | 가격: {Price}원";
     }
+}
+
 }

@@ -1,5 +1,12 @@
 using System;
-using System.Collections.Generic;
+using System.Collections.Generic; 
+
+
+
+namespace ERP.Client{
+  
+
+
 
 public static class ClientManager{
     public static List<Client> Clients = new List<Client>();
@@ -10,7 +17,10 @@ public static class ClientManager{
             Console.WriteLine("\n[거래처 관리 메뉴]");
             Console.WriteLine("1. 거래처 등록");
             Console.WriteLine("2. 거래처 목록 보기");
-            Console.WriteLine("3. 이전 메뉴로");
+            Console.WriteLine("3. 거래처 삭제");
+            Console.WriteLine("4. 파일로 저장");
+            Console.WriteLine("5. 파일에서 불러오기");
+            Console.WriteLine("6. 이전 메뉴로");
             Console.Write("선택: ");
             string input = Console.ReadLine();
 
@@ -24,6 +34,7 @@ public static class ClientManager{
                     string address = Console.ReadLine();
 
                     Clients.Add(new Client {Name = name, Contact = contact, Address = address});
+                    SaveClientToFile.Save(Clients);
                     Console.WriteLine("거래처가 등록되었습니다.");
                     break;
                 case "2":
@@ -33,11 +44,32 @@ public static class ClientManager{
                     }else{
                         foreach(var client in Clients){
                             Console.WriteLine(client);
-                        }
-
+                        } 
                     }
                     break;
+
                 case "3":
+                    Console.Write("삭제할 거래처명 입력: ");
+                    string delName = Console.ReadLine();
+                    var found = Clients.Find(c => c.Name == delName);
+                    if (found != null)
+                    {
+                        Clients.Remove(found);
+                        Console.WriteLine("삭제 완료!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("거래처를 찾을 수 없습니다.");
+                    }
+                    break;
+
+                case "4":
+                    SaveClientToFile.Save(Clients);
+                    break;
+                case "5":
+                    Clients = LoadClientFromFile.Load();
+                    break;
+                case "6":
                     return;
 
                 default:
@@ -46,4 +78,5 @@ public static class ClientManager{
             }
         }
     }
+}
 }

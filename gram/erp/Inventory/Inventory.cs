@@ -1,5 +1,8 @@
 using System;
-using System.Collections.Generic;
+using System.Collections.Generic; 
+
+namespace ERP.Inventory{
+  
 
 public static class InventoryManager{
 
@@ -10,7 +13,9 @@ public static class InventoryManager{
             Console.WriteLine("1. 상품 등록");
             Console.WriteLine("2. 상품 목록 보기");
             Console.WriteLine("3. 상품 삭제");
-            Console.WriteLine("4. 이전 메뉴로");
+            Console.WriteLine("4. 파일로 저장");
+            Console.WriteLine("5. 파일에서 불러오기");
+            Console.WriteLine("6. 이전 메뉴로");
             Console.Write("선택: ");
             string input = Console.ReadLine();
 
@@ -51,6 +56,12 @@ public static class InventoryManager{
                     }
                     break;
                 case "4":
+                    SaveToFile.Save(Items);
+                    break;
+                case "5":
+                    Items = LoadFromFile.Load();
+                    break;
+                case "6":
                     return; //상위 메뉴로 복귀
                 default:
                     Console.WriteLine("잘못된 입력입니다.");
@@ -58,4 +69,5 @@ public static class InventoryManager{
             }
         }
     }
+}
 }
