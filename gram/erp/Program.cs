@@ -3,6 +3,7 @@
 using ERP.Menu;
 using ERP.Inventory;
 using ERP.Client;
+using ERP.Database;
 
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Collections.Generic;
 class Program{
 
     static void Main(string[] args){
-
+        //DatabaseManager.ShowItems();
         const string USERNAME = "admin";
         const string PASSWORD = "1234";
 
